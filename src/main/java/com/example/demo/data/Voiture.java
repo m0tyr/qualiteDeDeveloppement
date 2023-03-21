@@ -6,21 +6,39 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 public class Voiture {
-    private double marque:
 
-    private int prix:
-
-    private int id:
-
-    public Voiture() {
-        this.id = 0:
-        this.prix = 0;
-        this.marque = 0.0;
+    private String marque;
+    private int prix;
+    private int id;
+    public void Voiture(){
+        this.marque="";
+        this.prix=0;
+        this.id=0;
+    }
+    public void Voiture(String m, int p, int id){
+        this.marque=m;
+        this.prix=p;
+        this.id=id;
+    }
+    public void setMarque(String marque) {
+        this.marque = marque;
+    }
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Voiture(id int, prix int, marque double) {
-        this.id = id;
-        this.prix = prix;
-        this.marque = marque;
+    public int getId() {
+        return this.id;
+    }
+
+    public int getPrix() {
+        return this.prix;
+    }
+
+    public String getMarque() {
+        return this.marque;
     }
 }
