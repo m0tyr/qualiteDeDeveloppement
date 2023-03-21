@@ -87,5 +87,4 @@ exit /b %EXIT_CODE%
 
 :mainEnd
 if "%OS%"=="Windows_NT" endlocal
-echo 'caca pipi'
 :omega
