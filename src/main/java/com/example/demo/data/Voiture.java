@@ -15,6 +15,18 @@ public class Voiture {
         this.prix=0;
         this.id=0;
     }
+    public void Voiture(String m, int p, int id){
+        this.marque=m;
+        this.prix=p;
+        this.id=id;
+    }
     public void setMarque(String marque) {
+        this.marque = marque;
+    }
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 }
