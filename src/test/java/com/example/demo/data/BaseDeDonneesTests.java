@@ -20,12 +20,23 @@ public class BaseDeDonneesTests {
     private VoitureRepository voitureRepository ;
 
     @Test
-    void uneVoiture(){
+    void CreateVoiture(){
         Voiture v1 = mock(Voiture.class);
-        v1.setId(12);
+        voitureRepository.save(v1);
+        Iterable<Voiture> v = voitureRepository.findAll();
 
-        String id =  v1.getId()+"";
-        System.out.println(id);
+        System.out.println(v);
+
+    }
+
+
+    @Test
+    void uneVoiture(){
+        Voiture v1 = Mockito.mock(Voiture.class);
+        v1.setId(12);
+        v1.setPrix(2);
+
+        System.out.println(v1.getPrix());
         System.out.println(v1);
 
         voitureRepository.save(v1);
