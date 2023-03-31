@@ -11,28 +11,31 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Optional;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 public class BaseDeDonneesTests {
     @MockBean
     private VoitureRepository voitureRepository ;
+    @MockBean
+    private Voiture vMB;
 
     @Test
     void CreateVoiture(){
-        Voiture v1 = mock(Voiture.class);
-        voitureRepository.save(v1);
+        voitureRepository.save(this.vMB);
         Iterable<Voiture> v = voitureRepository.findAll();
 
         System.out.println(v);
 
+        doNothing().when(vMB).setPrix(2);
+        doNothing().when(vMB).setId(1);
+        when(vMB.getId()).thenReturn(1);
     }
 
 
     @Test
     void uneVoiture(){
-        Voiture v1 = Mockito.mock(Voiture.class);
+        Voiture v1 = new Voiture("yes",1,1);
         v1.setId(12);
         v1.setPrix(2);
 
@@ -45,7 +48,5 @@ public class BaseDeDonneesTests {
         System.out.println(v);
         System.out.println(voitureRepository.count());
 
-        // tester les méthodes de l'interface CrudRepository qui permette d'accéder à la base de données: https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html
-        // save, find, delete...
     }
 }

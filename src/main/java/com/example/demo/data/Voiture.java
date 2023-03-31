@@ -33,6 +33,9 @@ public class Voiture {
         this.marque = marque;
     }
     public void setPrix(double prix) {
+        if(prix < 0){
+            return;
+        }
         this.prix = prix;
     }
     public void setId(int id) {
