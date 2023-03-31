@@ -11,31 +11,27 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Optional;
 
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
 public class BaseDeDonneesTests {
     @MockBean
-    private VoitureRepository voitureRepository;
-
+    private VoitureRepository voitureRepository ;
 
     @Test
     void uneVoiture(){
-        Voiture v1 = new Voiture("nowaycar",120,3);
-        Voiture v4 = new Voiture("nowaycar",120,3);
+        Voiture v1 = mock(Voiture.class);
+        v1.setId(12);
 
-        Iterable<Voiture> v = voitureRepository.findAll();
-        System.out.println(v);
+        String id =  v1.getId()+"";
+        System.out.println(id);
+        System.out.println(v1);
 
-        voitureRepository.save(new Voiture("nowaycar",120));
-        voitureRepository.save(v4);
         voitureRepository.save(v1);
+        Iterable<Voiture> v = voitureRepository.findAll();
 
-        System.out.println("dsfdsfds");
-
-        Iterable<Voiture> v2 = voitureRepository.findAll();
-
-        System.out.println(v2);
+        System.out.println(v);
         System.out.println(voitureRepository.count());
 
         // tester les méthodes de l'interface CrudRepository qui permette d'accéder à la base de données: https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html

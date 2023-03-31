@@ -42,18 +42,6 @@ public class Voiture {
     public int getId() {
         return this.id;
     }
-
-    public int getPrix() {
-        return this.prix;
-    }
-
-    public String getMarque() {
-        return this.marque;
-    }
-
-    public int getId() {
-        return this.id;
-    }
     public double getPrix() {
         return this.prix;
     }
